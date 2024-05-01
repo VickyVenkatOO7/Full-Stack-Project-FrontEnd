@@ -41,7 +41,7 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 cartItems: state.cartItems.map((item) =>
-                    item.cartItemId === action.payload.cartItemId ? action.payload : item
+                    item.id === action.payload.id ? action.payload : item
                 ),
             }
 
@@ -50,7 +50,7 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 cartItems: state.cartItems.filter((item) =>
-                    item.cartItemId !== action.payload
+                    item.id !== action.payload
                 ),
             }
 

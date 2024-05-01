@@ -13,17 +13,17 @@ const CartItem = ({ item }) => {
     const jwt = localStorage.getItem("jwt")
 
     const handleUpdateCartItem = (value) => {
-        console.log("cart item", item.cartItemId); 
+        console.log("cart item", item.id); 
         console.log("quantity", item.quantity);
         if (value === -1 && item.quantity === 1) {
             handleRemoveCartItem()
         } else {
-            const data = { cartItemId:item.cartItemId, quantity:item.quantity+value }
+            const data = { cartItemId:item.id, quantity:item.quantity+value }
             dispatch(updateCartItem({ data, jwt }));
         }
     }
     const handleRemoveCartItem = () => {
-        dispatch(removeCartItem({ cartItemId:item.cartItemId, jwt:auth.jwt || jwt }))
+        dispatch(removeCartItem({ cartItemId:item.id, jwt:auth.jwt || jwt }))
     }
     return (
         <div className='px-5'>

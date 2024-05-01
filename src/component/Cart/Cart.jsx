@@ -1,6 +1,6 @@
 import { Box, Button, Card, Divider, Grid, Modal, TextField } from '@mui/material'
 import React from 'react'
-import CartItem from './CartItem'
+import CartItem from './CartItem';
 import AddressCard from './AddressCard'
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
