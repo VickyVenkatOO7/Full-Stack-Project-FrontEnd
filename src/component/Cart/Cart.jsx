@@ -34,7 +34,6 @@ const initialValues = {
 //     city:Yup.string().required("City is required")
 //   })
 
-const items = [1, 1]
 const Cart = () => {
     const createOrderUsingSelectedAddress = () => { };
     const handleOpenAddressModal = () => setOpen(true);
