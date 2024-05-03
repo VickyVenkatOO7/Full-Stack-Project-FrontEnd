@@ -2,7 +2,7 @@ import { LOGOUT } from "../Authentication/ActionType";
 import * as actionType from "./ActionType";
 
 const initialState = {
-    cart: null,
+    cart: { items: [] },
     cartItems: [],
     loading: false,
     error: null,
