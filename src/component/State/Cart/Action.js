@@ -76,9 +76,13 @@ export const updateCartItem = (reqData) => {
     return async (dispatch) => {
         dispatch({ type: UPDATE_CARTITEM_REQUEST });
         try {
-            console.log("cart item", reqData.data.cartItemId);
-            console.log("quantity", reqData.data.quantity);
-            const { data } = await api.put(`/api/cart-item/update`, reqData, {
+            if (!reqData.data.cartItemId) {
+                throw new Error("Cart item ID is undefined");
+            }
+            // console.log("cart item", reqData.data.cartItemId);
+            // console.log("quantity", reqData.data.quantity);
+            console.log("UpdateCartItem request data:", reqData);
+            const { data } = await api.put(`/api/cart-item/update/${reqData.data.cartItemId}`, reqData.data, {
                 headers: {
                     Authorization: `Bearer ${reqData.jwt}`,
                 },

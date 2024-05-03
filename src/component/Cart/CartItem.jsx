@@ -13,18 +13,31 @@ const CartItem = ({ item }) => {
     const jwt = localStorage.getItem("jwt")
 
     const handleUpdateCartItem = (value) => {
-        console.log("cart item", item.id); 
-        console.log("quantity", item.quantity);
+        //const { cartItemId, quantity } = item;
+        //console.log("CartItem props:", item);
+        console.log("cartItemId:", item.data);
+        console.log("quantity:", item.quantity);
+        // if (!cartItemId) {
+        //     console.log("cartItemId is undefined");
+        //     return;
+        // }
+        //console.log("cart item", cartItemId);
+        //console.log("quantity", quantity);
         if (value === -1 && item.quantity === 1) {
             handleRemoveCartItem()
-        } else {
-            const data = { cartItemId:item.id, quantity:item.quantity+value }
-            dispatch(updateCartItem({ data, jwt }));
         }
+        const data = { cartItemId: item.id, quantity: item.quantity + value };
+        const reqData = { data, jwt }
+        dispatch(updateCartItem(reqData));
+
     }
     const handleRemoveCartItem = () => {
-        dispatch(removeCartItem({ cartItemId:item.id, jwt:auth.jwt || jwt }))
+        dispatch(removeCartItem({ cartItemId: item.id, jwt: auth.jwt || jwt }))
     }
+
+    const { cartItems } = useSelector((state) => state.cart);
+    console.log("Updated cart items:", cartItems);
+
     return (
         <div className='px-5'>
             <div className='lg:flex items-center lg:space-x-5'>

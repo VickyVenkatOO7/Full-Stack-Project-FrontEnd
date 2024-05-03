@@ -37,6 +37,8 @@ const cartReducer = (state = initialState, action) => {
             }
 
         case actionType.UPDATE_CARTITEM_SUCCESS:
+            console.log("Current cartItems:", state.cartItems);
+            console.log("Action payload:", action.payload);
             return {
                 ...state,
                 loading: false,
@@ -65,11 +67,11 @@ const cartReducer = (state = initialState, action) => {
 
         case LOGOUT:
             localStorage.removeItem("jwt");
-            return { 
-                ...state, 
-                cartItems: [], 
-                cart: null, 
-                success: "logout success" 
+            return {
+                ...state,
+                cartItems: [],
+                cart: null,
+                success: "logout success"
             };
 
         default:

@@ -35,8 +35,8 @@ const initialValues = {
 
 const items = [1, 1]
 const Cart = () => {
-    const createOrderUsingSelectedAddress = () => { }
-    const handleOpenAddressModel = () => setOpen(true);
+    const createOrderUsingSelectedAddress = () => {};
+    const handleOpenAddressModal = () => setOpen(true);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const { cart } = useSelector((store) => store)
@@ -60,7 +60,7 @@ const Cart = () => {
                         <div className='space-y-3'>
                             <div className='flex justify-between text-gray-400'>
                                 <p>Item Total</p>
-                                <p>₹599</p>
+                                <p>₹500</p>
                             </div>
 
                             <div className='flex justify-between text-gray-400'>
@@ -96,7 +96,7 @@ const Cart = () => {
                                 <div className='space-y-3 text-gray-500'>
                                     <h1 className='font-semibold text-lg text-white'>Add New Address</h1>
 
-                                    <Button variant='outlined' fullWidth onClick={handleOpenAddressModel}>Add</Button>
+                                    <Button variant='outlined' fullWidth onClick={handleOpenAddressModal}>Add</Button>
                                 </div>
                             </Card>
                         </div>
