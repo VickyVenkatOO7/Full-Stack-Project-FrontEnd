@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
                     <h1 className='py-5 text-2xl font-semibold'>Order Success....!</h1>
                     <p className='py-3 text-center text-gray-400'>Thank you for choosing "Dhash Food"...!! We appreciate your order.</p>
                     <p className='py-2 text-center text-gray-200 text-lg'>Have a Great day....!</p>
-                    <Button onClick={ () => navigate("/")} variant='contained' className='py-5'
+                    <Button onClick={() => navigate("/")} variant='contained' className='py-5'
                         sx={{ margin: "1rem 0rem" }}>Go To Home</Button>
                 </Card>
             </div>
