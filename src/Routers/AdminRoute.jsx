@@ -8,8 +8,7 @@ const AdminRoute = () => {
     <div>
       <Routes>
         <Route
-          path="/*"
-          element={true ? <CreateRestaurantForm /> : <Admin />}
+          path="/*" element={false ? <CreateRestaurantForm /> : <Admin />}
         ></Route>
       </Routes>
     </div>

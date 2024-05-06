@@ -13,15 +13,17 @@ import {
     TableRow
 } from '@mui/material'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const orders = [1, 1, 1, 1, 1, 1, 1, 1]
 const MenuTable = () => {
+    const navigate = useNavigate();
     return (
         <Box>
             <Card className='mt-1'>
                 <CardHeader
                     action={
-                        <IconButton aria-label="settings">
+                        <IconButton onClick={() => navigate("/admin/restaurants/add-menu")} aria-label="settings">
                             <Create />
                         </IconButton>
                     }

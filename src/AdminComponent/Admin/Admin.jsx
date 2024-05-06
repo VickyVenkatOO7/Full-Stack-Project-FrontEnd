@@ -9,6 +9,7 @@ import Ingredients from '../Ingredients/Ingredients'
 import Events from '../Events/Events'
 import RestaurantDetails from './RestaurantDetails'
 import RestaurantDashboard from '../Dashboard/Dashboard'
+import CreateMenuForm from '../Menu/CreateMenuForm'
 
 const Admin = () => {
     const handleClose = () => {
@@ -30,6 +31,7 @@ const Admin = () => {
                 <Route path='/ingredients' element={<Ingredients/>}/>
                 <Route path='/event' element={<Events/>}/>
                 <Route path='/details' element={<RestaurantDetails/>}/>
+                <Route path='/add-menu' element={<CreateMenuForm/>}/>
             </Routes>
 
         </div>
