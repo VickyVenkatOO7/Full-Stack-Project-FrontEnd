@@ -1,26 +1,43 @@
-import { Box, Card, CardHeader, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { Create, Delete } from '@mui/icons-material'
+import {
+    Box,
+    Card, 
+    CardHeader, 
+    IconButton, 
+    Paper, 
+    Table, 
+    TableBody, 
+    TableCell, 
+    TableContainer, 
+    TableHead, 
+    TableRow
+} from '@mui/material'
 import React from 'react'
 
 const orders = [1, 1, 1, 1, 1, 1, 1, 1]
-const OrderTable = () => {
+const MenuTable = () => {
     return (
         <Box>
             <Card className='mt-1'>
                 <CardHeader
-                    title={"All Orders"}
+                    action={
+                        <IconButton aria-label="settings">
+                            <Create />
+                        </IconButton>
+                    }
+                    title={"Menu"}
                     sx={{ pt: 2, alignItems: "center" }}
                 />
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Id</TableCell>
-                                <TableCell align="right">Image</TableCell>
-                                <TableCell align="right">Customer</TableCell>
-                                <TableCell align="right">Price</TableCell>
-                                <TableCell align="right">Name</TableCell>
+                                <TableCell align="left">Image</TableCell>
+                                <TableCell align="right">Title</TableCell>
                                 <TableCell align="right">Ingredients</TableCell>
-                                <TableCell align="right">Status</TableCell>
+                                <TableCell align="right">Price</TableCell>
+                                <TableCell align="right">Availability</TableCell>
+                                <TableCell align="right">Delete</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -36,8 +53,11 @@ const OrderTable = () => {
                                     <TableCell align="right">{"trinadh@gmail.com"}</TableCell>
                                     <TableCell align="right">{"price"}</TableCell>
                                     <TableCell align="right">{"pizza"}</TableCell>
-                                    <TableCell align="right">{"ingredients"}</TableCell>
-                                    <TableCell align="right">{"completed"}</TableCell>
+                                    <TableCell align="right">
+                                        <IconButton>
+                                            <Delete />
+                                        </IconButton>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -48,4 +68,4 @@ const OrderTable = () => {
     )
 }
 
-export default OrderTable
+export default MenuTable;
