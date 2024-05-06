@@ -17,8 +17,7 @@ const Navbar = () => {
             navigate("/my-profile")
         }
         else {
-            // navigate("/admin/restaurant")
-            navigate("/my-profile")
+            navigate("/admin/restaurants")
         }
     }
     return (
