@@ -1,4 +1,4 @@
-import { API_URL, api } from "../../../config/api";
+import { api } from "../../Config/api";
 import {
     CREATE_INGREDIENT_CATEGORY_FAILURE,
     CREATE_INGREDIENT_CATEGORY_REQUEST,

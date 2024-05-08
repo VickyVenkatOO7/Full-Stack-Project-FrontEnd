@@ -1,4 +1,4 @@
-import { api } from "../../../config/api.js"
+import { api } from "../../Config/api.js";
 import {
     GET_RESTURANTS_ORDER_FAILURE,
     GET_RESTURANTS_ORDER_REQUEST,
@@ -32,12 +32,12 @@ export const updateOrderStatus = ({ orderId, orderStatus, jwt }) => {
     };
 };
 
-export const fetchRestaurantOrder = ({ restaurantId, orderStatus, jwt }) => {
+export const fetchRestaurantsOrder = ({ restaurantId, orderStatus, jwt }) => {
     return async (dispatch) => {
         try {
             dispatch({ type: GET_RESTURANTS_ORDER_REQUEST });
 
-            const response = await api.get(
+            const {data} = await api.put(
                 `/api/admin/order/restuarant/${restaurantId}`, {
                     params: {order_status: orderStatus},
                 headers: {

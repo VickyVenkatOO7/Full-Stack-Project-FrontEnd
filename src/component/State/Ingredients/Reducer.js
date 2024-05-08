@@ -33,6 +33,7 @@ export const ingredientReducer = (state = initialState, action) => {
             };
 
         case UPDATE_STOCK:
+            console.log("Updating stock with payload:", action.payload);
             return {
                 ...state,
                 update: action.payload,

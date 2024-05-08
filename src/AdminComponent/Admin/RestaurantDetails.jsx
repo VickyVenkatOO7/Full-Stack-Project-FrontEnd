@@ -1,25 +1,35 @@
 import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
 import { Button, Card, CardContent, CardHeader, Grid } from '@mui/material'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { updateRestaurantStatus } from '../../component/State/Restaurant/Action';
 
 const RestaurantDetails = () => {
-  const handleRestaurantStatus = () => {
+  const { restaurant } = useSelector((store) => store)
+  const dispatch = useDispatch()
 
-  }
+  const handleRestaurantStatus = () => {
+    dispatch(updateRestaurantStatus({
+      restaurantId:restaurant.usersRestaurant.id,
+      jwt:localStorage.getItem("jwt")
+    }))
+  };
+
   return (
     <div className='lg:px-20 px-5 pb-10'>
       <div className='py-5 flex justify-center items-center gap-5'>
-        <h1 className='text-2xl lg:text-7xl text-center font-bold p-5'>Indian
-          Fast Food</h1>
+        <h1 className='text-2xl lg:text-7xl text-center font-bold p-5'>
+          {restaurant.usersRestaurant ?.name}
+        </h1>
         <div>
           <Button
-            color={true ? "primary" : "error"}
+            color={!restaurant.usersRestaurant ?.open ? "primary" : "error"}
             className='py-[1rem] px-[2rem]'
             variant='contained'
             onClick={handleRestaurantStatus}
             size='large'
           >
-            {true ? "close" : "open"}
+            {restaurant.usersRestaurant ?.open ? "close" : "open"}
           </Button>
         </div>
       </div>
@@ -34,7 +44,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Owner</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {restaurant.usersRestaurant ?.owner.fullName}
                   </p>
                 </div>
 
@@ -42,7 +52,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Restaurant Name</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {restaurant.usersRestaurant ?.name}
                   </p>
                 </div>
 
@@ -50,7 +60,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Cuisine Type</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {restaurant.usersRestaurant ?.cuisineType}
                   </p>
                 </div>
 
@@ -58,7 +68,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Opening Hours</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {restaurant.usersRestaurant ?.openingHours}
                   </p>
                 </div>
 
@@ -66,7 +76,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Status</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    {true ? <span className='px-5 py-2 rounded-full bg-green-400
+                    {restaurant.usersRestaurant ?.open ? <span className='px-5 py-2 rounded-full bg-green-400
                     text-gray-950'>Open</span> : <span className='px-5 py-2 
                     rounded-full bg-red-400 text-gray-950'>Closed</span>}
                   </p>
@@ -126,7 +136,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Email</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {restaurant.usersRestaurant ?.contactInformation?.email}
                   </p>
                 </div>
 
@@ -134,7 +144,7 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Mobile</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {restaurant.usersRestaurant ?.contactInformation?.mobile}
                   </p>
                 </div>
 
@@ -142,19 +152,19 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Social</p>
                   <div className='flex text-gray-400 items-center pb-3 gap-2'>
                     <span className='pr-5'>-</span>
-                    <a href="">
+                    <a href={restaurant.usersRestaurant ?.contactInformation?.instagram}>
                       <Instagram sx={{fontSize:"3rem"}}/>
                     </a>
 
-                    <a href="">
+                    <a href={restaurant.usersRestaurant ?.contactInformation?.twitter}>
                       <Twitter sx={{fontSize:"3rem"}}/>
                     </a>
 
-                    <a href="">
+                    <a href={restaurant.usersRestaurant ?.contactInformation?.linkedIn}>
                       <LinkedIn sx={{fontSize:"3rem"}}/>
                     </a>
 
-                    <a href="">
+                    <a href={restaurant.usersRestaurant ?.contactInformation?.facebook}>
                       <Facebook sx={{fontSize:"3rem"}}/>
                     </a>
                   </div>
