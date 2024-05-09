@@ -18,11 +18,11 @@ import {
     UPDATE_MENU_ITEMS_AVAILABILITY_SUCCESS
 } from "./ActionType";
 
-export const createMenuItem = (menu, jwt) => {
+export const createMenuItem = ({ menu, jwt }) => {
     return async (dispatch) => {
         dispatch({ type: CREATE_MENU_ITEM_REQUEST });
         try {
-            const { data } = await api.post(`/api/admin/food`, menu, {
+            const { data } = await api.post(`api/admin/food`, menu, {
                 headers: {
                     Authorization: `Bearer ${jwt}`,
                 },
