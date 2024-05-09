@@ -1,6 +1,5 @@
 import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
 import { Button, Card, CardContent, CardHeader, Grid } from '@mui/material'
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateRestaurantStatus } from '../../component/State/Restaurant/Action';
 
@@ -95,7 +94,8 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Country</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {/* {restaurant.usersRestaurant?.address.country} */}
+                    India
                   </p>
                 </div>
 
@@ -103,7 +103,8 @@ const RestaurantDetails = () => {
                   <p className='w-48'>City</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {/* {restaurant.usersRestaurant?.address.city} */}
+                    Visakhapatnam
                   </p>
                 </div>
 
@@ -111,7 +112,8 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Postal Code</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {/* {restaurant.usersRestaurant?.address.postalCode} */}
+                    530016
                   </p>
                 </div>
 
@@ -119,7 +121,8 @@ const RestaurantDetails = () => {
                   <p className='w-48'>Street Address</p>
                   <p className='text-gray-400'>
                     <span className='pr-5'>-</span>
-                    Trinadh
+                    {/* {restaurant.usersRestaurant?.address.streetAddress} */}
+                    Akkayyapalem
                   </p>
                 </div>
               </div>

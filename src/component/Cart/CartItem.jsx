@@ -13,22 +13,21 @@ const CartItem = ({ item }) => {
     const jwt = localStorage.getItem("jwt")
 
     const handleUpdateCartItem = (value) => {
-        //const { cartItemId, quantity } = item;
-        //console.log("CartItem props:", item);
-        console.log("cartItemId:", item.data);
-        console.log("quantity:", item.quantity);
-        // if (!cartItemId) {
-        //     console.log("cartItemId is undefined");
-        //     return;
-        // }
-        //console.log("cart item", cartItemId);
-        //console.log("quantity", quantity);
         if (value === -1 && item.quantity === 1) {
             handleRemoveCartItem()
         }
         const data = { cartItemId: item.id, quantity: item.quantity + value };
         const reqData = { data, jwt }
-        dispatch(updateCartItem(reqData));
+        dispatch(updateCartItem(reqData)); 
+
+        /* const newQuantity = item.quantity + value;
+        if (newQuantity <= 0) {
+            handleRemoveCartItem();
+        } else {
+            const data = { cartItemId: item.id, quantity: newQuantity };
+            const reqData = { data, jwt };
+            dispatch(updateCartItem(reqData));
+        } */
 
     }
     const handleRemoveCartItem = () => {
