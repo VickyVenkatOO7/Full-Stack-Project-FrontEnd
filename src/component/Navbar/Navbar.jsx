@@ -32,7 +32,7 @@ const Navbar = () => {
                     </li>
                 </div>
 
-                <div className='flex items-center space-x-2 lg:space-x-10'>
+                <div className='flex cursor-pointer items-center space-x-2 lg:space-x-10'>
 
                     <div>
                         <IconButton>
